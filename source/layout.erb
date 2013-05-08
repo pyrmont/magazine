@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv='X-UA-Compatible' content='IE=edge;chrome=1' />
+        
+        <title>inqk Magazine</title>
+        
+        <%= stylesheet_link_tag "reset" %>
+        <link href='http://fonts.googleapis.com/css?family=Sue+Ellen+Francisco|Oswald|Crimson+Text:400,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
+        <%= stylesheet_link_tag "base" %>        
+    </head>
+    <body>
+        
+        <header>
+            <p id="colophon">
+                Inqk is a magazine written by Michael Camilleri every so often.
+            </p>
+            <nav>
+                <ul>
+                    <li id="home"><%= link_to 'Inqk', '/' %></li>
+                    <li>Culture</li>
+                    <li>Personal</li>
+                    <li>Society</li>
+                    <li>Technology</li>
+                </ul>
+            </nav>
+        </header>
+        
+        <section class="content">
+            
+            <%= yield %>
+            
+        </section>
+        
+        <footer>
+            
+            <nav>
+                <ul>
+                    <li><%= link_to 'About This Project', '/about.html' %></li>
+                </ul>
+            </nav>
+            
+            <p>Original work placed in the public domain. All rights are disclaimed.</p>
+            
+        </footer>
+
+    </body>
+</html>
