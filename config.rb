@@ -9,7 +9,7 @@ activate :blog do |blog|
   blog.permalink = ":year/:title.html"
   blog.sources = "articles/:year-:month-:day-:title.html"
   # blog.taglink = "tags/:tag.html"
-  blog.layout = "article"
+  blog.layout = "templates/article"
   # blog.summary_separator = /(READMORE)/
   # blog.summary_length = 250
   # blog.year_link = ":year.html"
@@ -17,8 +17,8 @@ activate :blog do |blog|
   # blog.day_link = ":year/:month/:day.html"
   # blog.default_extension = ".markdown"
 
-  blog.tag_template = "tag.html"
-  blog.calendar_template = "calendar.html"
+  # blog.tag_template = "tag.html"
+  # blog.calendar_template = "calendar.html"
 
   # blog.paginate = true
   # blog.per_page = 10
@@ -103,4 +103,19 @@ configure :build do
   
   # Or use a different image path
   # set :http_path, "/Content/images/"
+end
+
+ignore "/templates/*"
+
+ready do
+  set :categorised, false
+  set :category, nil
+  ['Culture', 'Personal', 'Society', 'Technology'].each do |category|
+    articles = blog.articles.select { |a| a.data["category"] == category }
+    if articles.empty?
+      proxy "/#{category.downcase}/index.html", 'templates/empty.html', :locals => { :categorised => true, :category => category }
+    else
+      proxy "/#{category.downcase}/index.html", 'index.html', :locals => { :categorised => true, :category => category, :articles => articles }
+    end
+  end
 end

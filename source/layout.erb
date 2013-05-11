@@ -11,23 +11,34 @@
         <%= stylesheet_link_tag "base" %>        
     </head>
     <body>
-        
+
         <header>
             <p id="colophon">
                 Inqk is a magazine written by Michael Camilleri every so often.
             </p>
-            <nav>
+            <nav class='<%= ' categorised' if categorised || current_page.data.category %>'>
                 <ul>
+                    <%
+                    if category == 'Culture' || current_page.data.category == 'Culture'
+                        culture_class = 'highlight'
+                    elsif category == 'Personal' || current_page.data.category == 'Personal'
+                        personal_class = 'highlight'
+                    elsif category == 'Society' || current_page.data.category == 'Society'
+                        society_class = 'highlight'
+                    elsif category == 'Technology' || current_page.data.category == 'Technology'
+                        technology_class = 'highlight'
+                    end
+                    %>
                     <li id="home"><%= link_to 'Inqk', '/' %></li>
-                    <li>Culture</li>
-                    <li>Personal</li>
-                    <li>Society</li>
-                    <li>Technology</li>
+                    <li id="culture" class="<%= culture_class %>"><%= link_to 'Culture', '/culture/' %></li>
+                    <li id="personal" class="<%= personal_class %>"><%= link_to 'Personal', '/personal/' %></li>
+                    <li id="society" class="<%= society_class %>"><%= link_to 'Society', '/society/' %></li>
+                    <li id="technology" class="<%= technology_class %>"><%= link_to 'Technology', '/technology/' %></li>
                 </ul>
             </nav>
         </header>
         
-        <section class="content">
+        <section class="content<%= ' categorised' if categorised %>">
             
             <%= yield %>
             

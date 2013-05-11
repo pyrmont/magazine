@@ -4,11 +4,24 @@ a { border-bottom: 1px dotted; color: inherit; text-decoration: none;}
 
 header { font-family: 'Sue Ellen Francisco', cursive; margin: 3em auto 1em; text-transform: uppercase; width: 100em; }
 header p#colophon { font-size: 1.4em; }
-header nav ul { color: #f8f7d9; font-size: 5.5em; }
-header nav ul li { display: inline; margin-right: 0.1em; }
+header nav ul { color: #f8f7d9; font-size: 5.6em; }
+header nav ul { display: -webkit-flexbox; display: -ms-flexbox; display: -moz-box; display: -webkit-flex; display: flex; -webkit-flex-pack: justify; -ms-flex-pack: justify; flex-pack: justify; -webkit-justify-content: space-between; -ms-justify-content: space-between; justify-content: space-between; }
+header nav ul li { display: inline; list-style-type: none; margin-right: 0.1em; }
 header nav ul li:last-child { margin-right: 0; }
 header nav ul li#home { color: #cccccc; }
 header nav ul li a { border: none; }
+header nav ul li#culture:hover { color: rgb(61, 174, 246); }
+header nav ul li#personal:hover { color: rgb(246, 215, 6); }
+header nav ul li#society:hover { color: rgb(246, 79, 6); }
+header nav ul li#technology:hover { color: rgb(21, 218, 146); }
+header nav ul li#culture.highlight { color: rgb(61, 174, 246); }
+header nav ul li#personal.highlight { color: rgb(246, 215, 6); }
+header nav ul li#society.highlight { color: rgb(246, 79, 6); }
+header nav ul li#technology.highlight { color: rgb(21, 218, 146); }
+header nav.categorised ul li { opacity: 0.3; }
+header nav.categorised ul li:hover { opacity: 1.0; }
+header nav.categorised ul li#home { opacity: 1.0; }
+header nav.categorised ul li.highlight { opacity: 1.0; }
 
 section.content { background: #f8f7d9; box-shadow: 0 1em 1.5em -0.5em black; box-sizing: border-box; color: #000000; margin: 0 auto; padding: 5em 0; width: 100em; }
 section.content article { margin: 0 0 5em; }
@@ -17,10 +30,15 @@ section.content article div.notice { background: #eaeaea; }
 section.content article div.notice p { font-style: italic; text-align: center; }
 section.content article div.notice p:first-child { padding-top: 2em; }
 section.content article div.notice p:last-child { padding-bottom: 2em; }
-section.content article h1.culture { background: rgba(6, 153, 246, 0.3); }
+section.content article h1.culture { background: rgba(61, 174, 246, 0.3); }
 section.content article h1.personal { background: rgba(246, 215, 6, 0.3); }
 section.content article h1.society { background: rgba(246, 79, 6, 0.3); }
-section.content article h1.technology { background: rgba(34, 246, 6, 0.3); }
+section.content article h1.technology { background: rgba(21, 218, 146, 0.3); }
+section.content article h1.meta { background: #cccccc; }
+section.content.categorised article h1.culture { background: none; }
+section.content.categorised article h1.personal { background: none; }
+section.content.categorised article h1.society { background: none; }
+section.content.categorised article h1.technology { background: none; }
 
 section.content h1 { font-family: "Oswald", sans-serif; font-size: 3.4em; font-style: normal; font-weight: 400; margin: 0 0 0.75em 0; padding: 0.25em 20%; text-align: center; }
 section.content h2 { font-family: "Oswald", sans-serif; font-size: 2.5em; font-style: normal; font-weight: 400; margin: 0 0 0.75em 0; padding: 0.25em 20%; text-align: left; }
