@@ -1,11 +1,11 @@
 # Ignore bundler config
 /.bundle
 
+# Ignore build
+/build
+
 # Ignore articles
 /source/articles
-
-# Ignore the build directory
-/build
 
 # Ignore Sass' cache
 /.sass-cache
